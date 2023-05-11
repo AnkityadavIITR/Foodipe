@@ -3,6 +3,8 @@ import {FaPizzaSlice ,FaHamburger} from 'react-icons/fa'
 import {GiNoodles ,GiChopsticks} from 'react-icons/gi'
 import styles from "../styles.module.css"
 import {NavLink} from 'react-router-dom'
+import styled from 'styled-components'
+
 const Categories = () => {
   return (
     <div className={styles.list}>

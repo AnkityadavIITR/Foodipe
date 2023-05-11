@@ -13,7 +13,7 @@ export const Veggies = () => {
     }else{
 
 
-      fetch( `https://api.spoonacular.com/recipes/random?apiKey=${process.env.React_Api}&number=9`)
+      fetch( `https://api.spoonacular.com/recipes/random?apiKey=5c2f5836eea14c819a83faf11a0df1fe&number=9`)
       .then(response => response.json())
       .then(data => 
         setVeggies(data.recipes))

@@ -20,7 +20,7 @@ const Cuisine = () => {
     //   setCuisine(JSON.parse(check));
     // }else{
       console.log('name',name)
-      fetch(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.React_Api}&number=9&cuisine=${name}`)
+      fetch(`https://api.spoonacular.com/recipes/complexSearch?apiKey=5c2f5836eea14c819a83faf11a0df1fe&number=9&cuisine=${name}`)
       .then(res => {
         return res.json()
       })

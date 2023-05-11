@@ -3,17 +3,19 @@ import Categories from "./components/Categories";
 import Pages from "./pages/Pages";
 import Home from "./pages/Home";
 import Cuisine from "./pages/Cuisine";
-import Navbar from "./components/Navbar";
+import Search from "./components/Search";
+import Searched from "./pages/Searched";
 
 
 function App() {
   return (
     <div className="App">
-      <Navbar/>
+     <Search/>
      <Categories/>
       <Routes>
         <Route path="/" element={<Home/>}/>
         <Route path="/Cuisine/:type" element={<Cuisine/>}></Route>
+        <Route path="/searched/:search" element={<Searched/>}></Route>
       </Routes>
   
       </div>
