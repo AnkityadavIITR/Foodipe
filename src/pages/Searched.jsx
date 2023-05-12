@@ -1,5 +1,5 @@
 import React from 'react'
-import { useParams} from 'react-router-dom';
+import { Link, useParams} from 'react-router-dom';
 import { useEffect } from 'react';
 import { useState } from 'react';
 import styles from "../styles.module.css"
@@ -19,8 +19,8 @@ const Searched = () => {
         // if(check){
         //   setCuisine(JSON.parse(check));
         // }else{
-          console.log('name',name)
-          fetch(`https://api.spoonacular.com/recipes/complexSearch?apiKey=5c2f5836eea14c819a83faf11a0df1fe&number=9&query=${name}`)
+          
+          fetch(`https://api.spoonacular.com/recipes/complexSearch?apiKey=24b29fd7f5d94f058956eb26253fc25a&number=9&query=${name}`)
           .then(res => {
             return res.json()
           })
@@ -47,10 +47,12 @@ const Searched = () => {
       {
         search && search.length > 0 ? search.map(recipe=>{
           return(
+            <Link to={"recipe/"+recipe.id}>
             <div className={styles.card}>
               <img src={recipe.image} alt={recipe.title} className={styles.image}></img>            
               <h4 className={styles.para}>{recipe.title}</h4>
             </div >
+            </Link>
           )
         })
       :<p>No recipes found.</p>

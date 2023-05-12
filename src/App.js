@@ -1,10 +1,10 @@
 import { Route,  Routes } from "react-router-dom";
 import Categories from "./components/Categories";
-import Pages from "./pages/Pages";
 import Home from "./pages/Home";
 import Cuisine from "./pages/Cuisine";
 import Search from "./components/Search";
 import Searched from "./pages/Searched";
+import Recipe from "./pages/Recipe";
 
 
 function App() {
@@ -16,6 +16,7 @@ function App() {
         <Route path="/" element={<Home/>}/>
         <Route path="/Cuisine/:type" element={<Cuisine/>}></Route>
         <Route path="/searched/:search" element={<Searched/>}></Route>
+        <Route path ="/recipe/:name" element={<Recipe></Recipe>}></Route>
       </Routes>
   
       </div>
@@ -30,3 +31,5 @@ export default App;
 //* in react to navigate to different page we use react "Routes in App.js"
 
 //but to use react routes we first add "<BrowserRouter> in index.js and wrapp the whole app inside browserouter"
+
+//here path in routes are taken from "to={}" and it dircts it to route path and then it render the element

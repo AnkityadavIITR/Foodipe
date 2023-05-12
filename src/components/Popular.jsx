@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import styles from "../styles.module.css"
 import {SplideSlide, Splide} from  "@splidejs/react-splide"
 import '@splidejs/react-splide/css';
+import { Link } from "react-router-dom";
 
 
 export const Popular=()=> {
@@ -13,7 +14,7 @@ export const Popular=()=> {
     if(check){
       setPopular(JSON.parse(check));
     }else{
-      fetch( `https://api.spoonacular.com/recipes/random?apiKey=5c2f5836eea14c819a83faf11a0df1fe&number=9&tags=vegetarian`)
+      fetch( `https://api.spoonacular.com/recipes/random?apiKey=24b29fd7f5d94f058956eb26253fc25a&number=9&tags=vegetarian`)
       .then(response => response.json())
       .then(data => 
         setPopular(data.recipes))
@@ -41,10 +42,12 @@ export const Popular=()=> {
           popular.map((recipe)=>{
           return(
             <SplideSlide key={recipe.id}>
+              <Link to={"/recipe/"+recipe.id}>
               <div className={styles.card}>
                 <p className={styles.para}>{recipe.title}</p>
                 <img src={recipe.image} alt={recipe.title} className={styles.image}></img>
               </div>
+              </Link>
             </SplideSlide>
           );
           })

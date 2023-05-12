@@ -3,6 +3,7 @@ import styles from "../styles.module.css"
 // import motion from "framer-motion"
 import { Link,useParams } from 'react-router-dom'
 import styled from 'styled-components'
+
 const Cuisine = () => {
 
   const [cuisine,setCuisin]=useState([]);
@@ -20,7 +21,7 @@ const Cuisine = () => {
     //   setCuisine(JSON.parse(check));
     // }else{
       console.log('name',name)
-      fetch(`https://api.spoonacular.com/recipes/complexSearch?apiKey=5c2f5836eea14c819a83faf11a0df1fe&number=9&cuisine=${name}`)
+      fetch(`https://api.spoonacular.com/recipes/complexSearch?apiKey=24b29fd7f5d94f058956eb26253fc25a&number=9&cuisine=${name}`)
       .then(res => {
         return res.json()
       })
@@ -49,10 +50,12 @@ const Cuisine = () => {
       {
         cuisine && cuisine.length > 0 ? cuisine.map(recipe=>{
           return(
+            <Link to={"/recipe/"+recipe.id}>
             <div className={styles.card}>
               <img src={recipe.image} alt={recipe.title} className={styles.image}></img>            
               <h4 className={styles.para}>{recipe.title}</h4>
             </div >
+            </Link>
           )
         })
       :<p>No recipes found.</p>
@@ -71,7 +74,7 @@ const Cuisine = () => {
     img{
       width:100%;
       height:100%;
-      object-fit:cover,
+      object-fit:cover;
       border-radius:2rem;
       
     } 
