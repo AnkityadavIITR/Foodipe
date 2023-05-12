@@ -1,6 +1,6 @@
 
 #its an app food recipe made by using Spoonacular Api 
-#where you can see the recipe of your favourite food and download the recipe
+where you can see the recipe of your favourite food and download the recipe
 
 # Getting Started with Create React App
 
