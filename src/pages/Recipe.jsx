@@ -9,7 +9,7 @@ const Recipe = () => {
     let param=useParams();
     
     useEffect(()=>{
-        fetch(`https://api.spoonacular.com/recipes/${param.name}/information?apiKey=24b29fd7f5d94f058956eb26253fc25a`)
+        fetch(`https://api.spoonacular.com/recipes/${param.name}/information?apiKey=${process.env.Api_key}`)
         .then(res=>{
             return res.json();
         }).then(data=>{
