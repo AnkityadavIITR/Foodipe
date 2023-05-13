@@ -25,11 +25,3 @@ function App() {
 
 export default App;
 
-//in app we don't want to cluster all the pages component because it will be many lines so wo already 
-//render all these files in "Pages.jsx" inside Pages.jsx and then import "Pages.jsc inside app.js"
-
-//* in react to navigate to different page we use react "Routes in App.js"
-
-//but to use react routes we first add "<BrowserRouter> in index.js and wrapp the whole app inside browserouter"
-
-//here path in routes are taken from "to={}" and it dircts it to route path and then it render the element
