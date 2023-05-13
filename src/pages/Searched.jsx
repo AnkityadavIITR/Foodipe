@@ -20,7 +20,7 @@ const Searched = () => {
         //   setCuisine(JSON.parse(check));
         // }else{
           
-          fetch(`https://api.spoonacular.com/recipes/complexSearch?apiKey=24b29fd7f5d94f058956eb26253fc25a&number=9&query=${name}`)
+          fetch(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.Api_key}&number=9&query=${name}`)
           .then(res => {
             return res.json()
           })
