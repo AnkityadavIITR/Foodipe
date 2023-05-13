@@ -24,20 +24,40 @@ const Recipe = () => {
     <DetailWrapper>
        <div>
          <h2>{detail.title}</h2>
-         <img src={detail.image}></img>
+         <Image src={detail.image}></Image>
        </div>
        <Info>
          <Button  className={activeTab==='Instructions' ? 'active' :''} onClick={()=>{setactiveTab("Instructions")}}>Instructions</Button>
          <Button className={activeTab==='Ingredients' ? 'active' :''}   onClick={()=>{setactiveTab("Ingredients")}}>Ingredients</Button>
+
+         {activeTab==='Instructions' && (
+
+         <div>
+          <h3 dangerouslySetInnerHTML={{__html:detail.summary}}></h3>
+          <h3 dangerouslySetInnerHTML={{__html:detail.instructions}}></h3>
+         </div>
+         )}
+
+         {activeTab==='Ingredients' && (
+
+          <ul>
+            {detail.extendedIngredients.map((item)=>{
+              return <li key={item.id}>{item.original}</li>
+            })}
+          </ul>
+         )}
+          
        </Info>
+
 
     </DetailWrapper>
   )
 }
 
 const DetailWrapper=styled.div`
-  margin-top: 10rem ;
+  margin-top: 5rem ;
   margin-bottom: 5rem ;
+  display: flex;
   
   .active{
     background: linear-gradient(35deg, #494949, #313131);
@@ -45,7 +65,7 @@ const DetailWrapper=styled.div`
     
   }
   h2{
-      margin-bottom:2rem;
+      margin-bottom:1rem;
   }
   li{
     font-size:1.2rem;
@@ -55,7 +75,12 @@ const DetailWrapper=styled.div`
     margin-top:2rem;
 
   }
+  
 `;
+
+const Image=styled.img`
+  width: 400px;
+`
 
 
 const Button=styled.button`
@@ -65,12 +90,11 @@ const Button=styled.button`
   color: #313131;
   background:white;
   border: 2px solid black;
-  margin-left:2rem;
   text-align:center; 
 `
 const Info=styled.div`
-  display:flex;
-  padding-right:10px;
+  margin-left: 3rem;
+  padding-right:2px;
   
 `
 
