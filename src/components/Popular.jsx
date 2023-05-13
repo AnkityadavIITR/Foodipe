@@ -14,7 +14,7 @@ export const Popular=()=> {
     if(check){
       setPopular(JSON.parse(check));
     }else{
-      fetch( `https://api.spoonacular.com/recipes/random?apiKey=24b29fd7f5d94f058956eb26253fc25a&number=9&tags=vegetarian`)
+      fetch( `https://api.spoonacular.com/recipes/random?apiKey=${process.env.Api_key}&number=9&tags=vegetarian`)
       .then(response => response.json())
       .then(data => 
         setPopular(data.recipes))
